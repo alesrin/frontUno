@@ -1,1 +1,16 @@
-<p>header works!</p>
+<div class="container">
+    <h1 class="text-center mt-5">Bienvenido a mi aplicación Angular</h1>
+    <button class="btn btn-primary">Haz clic aquí</button>
+</div>
+
+<button (click)="open(content)" class="btn btn-primary">Abrir Modal</button>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Título del Modal</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.close('Close click')"></button>
+  </div>
+  <div class="modal-body">
+    <p>Contenido del modal...</p>
+  </div>
+</ng-template>

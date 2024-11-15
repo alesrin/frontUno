@@ -1,0 +1,148 @@
+<div class="container my-5">
+	<header class="bg-dark text-white p-4 rounded">
+	  <h1 class="text-center display-4">Manual de Componentes de ng-bootstrap</h1>
+	  <p class="text-center lead">Este manual te guiará a través de los componentes más útiles de ng-bootstrap en Angular.</p>
+	</header>
+  
+	<!-- Ejemplo de Alerta -->
+	<section class="row my-4 py-3 bg-light border rounded">
+	  <div class="col-12">
+		<h2 class="section-title text-primary">Ejemplo 1: Alerta de Éxito</h2>
+		<p class="section-intro">Las alertas son útiles para mostrar mensajes importantes a los usuarios. Este ejemplo muestra una alerta de éxito que puede ser cerrada manualmente.</p>
+		<ngb-alert *ngIf="showAlert" type="success" (close)="showAlert = false">
+		  ¡Has creado tu primer alert!
+		</ngb-alert>
+		<button *ngIf="!showAlert" class="btn btn-primary" (click)="showAlert = true">Mostrar Alerta</button>
+		<button *ngIf="showAlert" class="btn btn-primary" (click)="showAlert = false">Cerrar Alerta</button>
+	  </div>
+	</section>
+  
+	<!-- Ejemplo de Modal -->
+	<section class="row my-4 py-3 bg-light border rounded">
+	  <div class="col-12">
+		<h2 class="section-title text-primary">Ejemplo 2: Modal</h2>
+		<p class="section-intro">Los modales permiten mostrar información adicional sin redirigir al usuario. Este ejemplo muestra cómo abrir y cerrar un modal.</p>
+		<button (click)="open(content)" class="btn btn-primary">Abrir Modal</button>
+		<ng-template #content>
+		  <div class="modal-header">
+			<h4 class="modal-title">Luke</h4>
+		  </div>
+		  <div class="modal-body">
+			<p>Yo soy tu padre</p>
+		  </div>
+		</ng-template>
+	  </div>
+	</section>
+  
+	<!-- Ejemplo de Acordeón -->
+	<section class="row my-4 py-3 bg-light border rounded">
+	  <div class="col-12">
+		<h2 class="section-title text-primary">Ejemplo 3: Acordeón</h2>
+		<p class="section-intro">El acordeón permite agrupar contenido en secciones colapsables. Útil para mostrar listas de información organizada.</p>
+		<ngb-accordion #acc="ngbAccordion" activeIds="panel-1">
+		  <ngb-panel id="panel-1" title="Panel 1">
+			<ng-template ngbPanelContent>Contenido del Panel 1</ng-template>
+		  </ngb-panel>
+		  <ngb-panel id="panel-2" title="Panel 2">
+			<ng-template ngbPanelContent>Contenido del Panel 2</ng-template>
+		  </ngb-panel>
+		</ngb-accordion>
+	  </div>
+	</section>
+  
+	<!-- Ejemplo de Grupo de Radio -->
+	<section class="row my-4 py-3 bg-light border rounded">
+	  <div class="col-12">
+		<h2 class="section-title text-primary">Ejemplo 4: Grupo de Radio</h2>
+		<p class="section-intro">Este ejemplo muestra un grupo de radio buttons para seleccionar una opción. Los botones cambian dinámicamente según la selección.</p>
+		<div ngbRadioGroup [(ngModel)]="selectedOption">
+		  <div><label ngbButtonLabel>
+			<input ngbButton type="radio" value="opcion1"> Modo claro
+		  </label></div>
+		  <label ngbButtonLabel>
+			<input ngbButton type="radio" value="opcion2"> Modo oscuro
+		  </label>
+		</div>
+	  </div>
+	</section>
+  
+	<!-- Ejemplo de Carrusel -->
+	<section class="row my-4 py-3 bg-light border rounded">
+	  <div class="col-12">
+		<h2 class="section-title text-primary">Ejemplo 5: Carrusel</h2>
+		<p class="section-intro">El carrusel permite mostrar contenido en diapositivas con animaciones. Ideal para destacar imágenes o información visual.</p>
+		<ngb-carousel>
+		  <ng-template ngbSlide>
+			<img src="../../assets/img/patata.jpg" alt="Imagen 1">
+			<div class="carousel-caption">¡Qué hambre!</div>
+		  </ng-template>
+		  <ng-template ngbSlide>
+			<img width="100%" height="auto" src="../../assets/img/papa.jpg" alt="Imagen 2">
+			<div class="carousel-caption">Patatas fritas...</div>
+		  </ng-template>
+		</ngb-carousel>
+	  </div>
+	</section>
+  
+	  <!-- Ejemplo de Paginación -->
+	  <section class="row my-4 py-3 bg-light border rounded">
+		<div class="col-12">
+		  <h2 class="section-title text-primary">Ejemplo 6: Paginación</h2>
+		  <p class="section-intro">La paginación permite dividir grandes volúmenes de datos en páginas. Este ejemplo muestra cómo manejar la paginación en ng-bootstrap.</p>
+		  <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="10"></ngb-pagination>
+		</div>
+	  </section>
+	
+	  <!-- Ejemplo de Tooltip -->
+	  <section class="row my-4 py-3 bg-light border rounded">
+		<div class="col-12">
+		  <h2 class="section-title text-primary">Ejemplo 7: Tooltip</h2>
+		  <p class="section-intro">Los tooltips muestran información adicional al pasar el cursor sobre un elemento. Aquí tienes un ejemplo de un botón con tooltip.</p>
+		  <button ngbTooltip="¿A que no te lo esperabas?" class="btn btn-secondary">Hover me</button>
+		</div>
+	  </section>
+	
+	  <!-- Ejemplo de Popover -->
+	  <section class="row my-4 py-3 bg-light border rounded">
+		<div class="col-12">
+		  <h2 class="section-title text-primary">Ejemplo 8: Popover</h2>
+		  <p class="section-intro">Los popovers son similares a los tooltips pero pueden contener más información, como títulos y botones.</p>
+		  <button ngbPopover="Facile" popoverTitle="Programare e" class="btn btn-secondary">Click me</button>
+		</div>
+	  </section>
+	
+	  <!-- Ejemplo de Selector de Fecha -->
+	  <section class="row my-4 py-3 bg-light border rounded">
+		<div class="col-12">
+		  <h2 class="section-title text-primary">Ejemplo 9: Selector de Fecha</h2>
+		  <p class="section-intro">El selector de fecha permite a los usuarios seleccionar una fecha en un calendario interactivo. La fecha seleccionada se muestra abajo.</p>
+		  <ngb-datepicker [(ngModel)]="model" (dateSelect)="onDateSelect($event)"></ngb-datepicker>
+		  <p>Fecha seleccionada: {{ model.year }}-{{ model.month }}-{{ model.day }}</p>
+		</div>
+	  </section>
+	
+	  <!-- Ejemplo de Menú Desplegable -->
+	  <section class="row my-4 py-3 bg-light border rounded">
+		<div class="col-12">
+		  <h2 class="section-title text-primary">Ejemplo 10: Menú Desplegable</h2>
+		  <p class="section-intro">Los menús desplegables son útiles para mostrar listas de opciones en un formato compacto. Este ejemplo muestra un menú con opciones.</p>
+		  <div ngbDropdown class="d-inline-block">
+			<button class="btn btn-outline-primary" ngbDropdownToggle>Desplegable</button>
+			<div ngbDropdownMenu>
+			  <button ngbDropdownItem>Opción 1</button>
+			  <button ngbDropdownItem>Opción 2</button>
+			</div>
+		  </div>
+		</div>
+	  </section>
+	
+	  <!-- Ejemplo de Barra de Progreso -->
+	  <section class="row my-4 py-3 bg-light border rounded">
+		<div class="col-12">
+		  <h2 class="section-title text-primary">Ejemplo 11: Barra de Progreso</h2>
+		  <p class="section-intro">La barra de progreso es ideal para mostrar el avance de una operación. Este ejemplo muestra una barra de progreso al 50%.</p>
+		  <ngb-progressbar type="success" [value]="50"></ngb-progressbar>
+		</div>
+	  </section>
+	</div>
+	

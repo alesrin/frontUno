@@ -1,20 +1,24 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NgbAlertModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
+import { FormsModule } from '@angular/forms';
 
+import { NgBootstrapComponent } from './ng-bootstrap/ngbd-alert-closeable.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    NgBootstrapComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    NgbModule,
+    NgbAlertModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
